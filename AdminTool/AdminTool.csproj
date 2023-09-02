@@ -62,6 +62,7 @@
     <Compile Include="ChangeUserPassword.xaml.cs">
       <DependentUpon>ChangeUserPassword.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EMailValidator.cs" />
     <Compile Include="RemoveFromAdmins.xaml.cs">
       <DependentUpon>RemoveFromAdmins.xaml</DependentUpon>
     </Compile>

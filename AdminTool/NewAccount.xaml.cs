@@ -97,6 +97,12 @@ namespace AdminTool
                 return;
             }
 
+            if (!EMailValidator.IsValid(email))
+            {
+                TextBlock_AppMessage.Text = "The email address is not in a valid format.";
+                return;
+            }            
+
             ThreadPool.QueueUserWorkItem(delegate { Execute(accountName, password, fullName, email); });
         }
 
@@ -169,6 +175,10 @@ namespace AdminTool
                         else if (returnCode == 1)
                         {
                             TextBlock_AppMessage.Text = string.Format("The account '{0}' already exists.", accountName);
+                        }
+                        else if (returnCode == 2)
+                        {
+                            TextBlock_AppMessage.Text = string.Format("The Email '{0}' is already in use.", email);
                         }
                         else if (returnCode == -1)
                         {
